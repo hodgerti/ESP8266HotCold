@@ -5,8 +5,8 @@
 #include <ESP8266WebServer.h>
 #include <DNSServer.h>
 
-const char HTTP_PAGE[] = "<!DOCTYPE html><head></head></html>";
-
+const char HTTP_PAGE[] PROGMEM = "<!DOCTYPE html><html><head></head><style>.btn{background-color: red;color: black;padding: 16px 16px;margin-bottom: 5px;font-size: 20px;border: 1px solid black;cursor: pointer;width: 50%;height: 3em;}.btn:hover, .btn:focus{color: white;}.btn_analog:hover, .btn_analog:focus{color: white;}.btn-header{color: black;font-family: Verdana;font-size: 14px;margin: 0px auto;padding: 1em;width: 50%;}input[type=\"text\"]{width: 30%;padding-right: 50px;font-family: Verdana;font-size: 22px;}input[type=\"submit\"]{width: 12%;height: 3em;padding-right: 50px;background-color: blue;color: black;border: 1px solid black;}input[type=\"submit\"]:hover{color: white;}input[type=\"submit\"]:focus{color: white;}</style><body><h5 class=\"btn-header\"> A BUTTON </h5><div align=\"center\"><input type=\"text\" id=\"a_button\" ><input type=\"submit\" id=\"dim_level_button\" value=\"button\"></div></body>";
+const char HTTP_404[]  PROGMEM = "<!DOCTYPE html><html><h1>404</h1></html>";
 class WiFiProxSensor
 {
   public:
@@ -29,6 +29,7 @@ class WiFiProxSensor
     const char DNS_PORT = 53;
 
     void handleRoot();
+    void handleNotFound();
 
     bool _DEBUG = true;
     template <typename T>
