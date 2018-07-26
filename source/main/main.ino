@@ -17,7 +17,7 @@ void setup()
   Serial.println();
 
   // start softap
-  proxSensor.startProxPortal();
+  proxSensor.setupProxPortal();
 }
 
 void loop() 

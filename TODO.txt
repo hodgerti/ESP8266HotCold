@@ -1,0 +1,4 @@
+Feature List:
+- Better softAP recovery (including autorefresh)
+- Understand DNS '*' redirect and how browsers handle that
+	x should lead to better understanding of crappy portal

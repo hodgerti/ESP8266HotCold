@@ -14,7 +14,7 @@ class WiFiProxSensor
     WiFiProxSensor( char const *, char const * = NULL );
     ~WiFiProxSensor();
 
-    boolean startProxPortal();
+    boolean setupProxPortal();
     boolean think();
     
   protected:
@@ -27,9 +27,14 @@ class WiFiProxSensor
     char const *_pass = "";
     // DNS server
     const char DNS_PORT = 53;
+    int serverStartTime;
 
     void handleRoot();
     void handleNotFound();
+
+    boolean isIp(String str);
+    boolean captivePortal();
+    String toStringIp(IPAddress ip);
 
     bool _DEBUG = true;
     template <typename T>
